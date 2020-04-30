@@ -1,8 +1,10 @@
 from abc import ABC, abstractmethod
+from typing import Optional
 
 
 class Screen(ABC):
-    next_screen = None
+    def __init__(self):
+        self.next_screen: Optional[Screen] = None
 
     @abstractmethod
     def update(self):
