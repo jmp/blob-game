@@ -13,12 +13,16 @@ class BBox:
     offset_y: int = 0
 
     def overlaps(self, other: BBox) -> bool:
-        if self.offset_x + self.x + self.w <= other.offset_x + other.x:
+        x = self.x + self.offset_x
+        y = self.y + self.offset_y
+        other_x = other.x + other.offset_x
+        other_y = other.y + other.offset_y
+        if x <= other_x - self.w:
             return False
-        if self.offset_x + self.x >= other.offset_x + other.x + other.w:
+        if x >= other_x + other.w:
             return False
-        if self.offset_y + self.y >= other.offset_y + other.y + other.h:
+        if y >= other_y + other.h:
             return False
-        if self.offset_y + self.y + self.h <= other.offset_y + other.y:
+        if y <= other_y - self.h:
             return False
         return True
