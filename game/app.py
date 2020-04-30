@@ -1,7 +1,7 @@
 import pyxel
 
 from .constants import SCREEN_WIDTH, SCREEN_HEIGHT, CAPTION, DATA_FILE
-from .screen import Screen
+from .screens.screen import Screen
 
 
 class App:

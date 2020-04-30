@@ -1,7 +1,7 @@
 import pyxel
 
 from .screen import Screen
-from .ui import draw_button, draw_title
+from ..ui import draw_button, draw_title
 
 START = 'Start'
 QUIT = 'Quit'
