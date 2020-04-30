@@ -15,6 +15,7 @@ class Ghost(Object):
     ]
 
     def __init__(self):
+        super().__init__()
         self.reset()
 
     def reset(self):

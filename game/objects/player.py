@@ -5,14 +5,17 @@ from .object import Object
 
 
 class Player(Object):
-    x, y = 60, 60
-
     images = [
         Image(0, 0, 0, colkey=13),
         Image(0, 8, 0, colkey=13),
         Image(1, 0, 0, colkey=13),
         Image(1, 8, 0, colkey=13),
     ]
+
+    def __init__(self):
+        super().__init__()
+        self.x = 60
+        self.y = 60
 
     def update(self):
         moving = False

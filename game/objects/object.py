@@ -10,15 +10,35 @@ from ..image import Image
 
 
 class Object:
-    x: int = 0
-    y: int = 0
-    bbox: BBox = BBox()
     images: List[Image] = []
     img: Image = None
     move_speed: int = 1
     direction: int = 0
     colkey: int = 13
     size: int = 8
+
+    def __init__(self):
+        self.bbox = BBox()
+        self._x: int = 0
+        self._y: int = 0
+
+    @property
+    def x(self) -> int:
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        self._x = value
+        self.bbox.offset_x = value
+
+    @property
+    def y(self) -> int:
+        return self._y
+
+    @y.setter
+    def y(self, value):
+        self._y = value
+        self.bbox.offset_y = value
 
     def draw(self):
         if self.img:
@@ -29,6 +49,4 @@ class Object:
             )
 
     def overlaps(self, other: Object):
-        bbox_self = self.bbox.at(self.x, self.y)
-        bbox_other = other.bbox.at(other.x, other.y)
-        return bbox_self.overlaps(bbox_other)
+        return self.bbox.overlaps(other.bbox)

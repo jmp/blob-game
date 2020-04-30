@@ -9,17 +9,16 @@ class BBox:
     y: int = 0
     w: int = 8
     h: int = 8
-
-    def at(self, x, y) -> BBox:
-        return BBox(x + self.x, y + self.y, self.w, self.h)
+    offset_x: int = 0
+    offset_y: int = 0
 
     def overlaps(self, other: BBox) -> bool:
-        if self.x + self.w < other.x:
+        if self.offset_x + self.x + self.w < other.offset_x + other.x:
             return False
-        if self.x > other.x + other.w:
+        if self.offset_x + self.x > other.offset_x + other.x + other.w:
             return False
-        if self.y > other.y + other.h:
+        if self.offset_y + self.y > other.offset_y + other.y + other.h:
             return False
-        if self.y + self.h < other.y:
+        if self.offset_y + self.y + self.h < other.offset_y + other.y:
             return False
         return True
