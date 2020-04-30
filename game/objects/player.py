@@ -27,8 +27,9 @@ class Player(Object):
             moving = True
         if pyxel.btn(pyxel.KEY_RIGHT):
             self.x += self.move_speed
-            if self.x > pyxel.width - (self.bbox.x + self.bbox.w):
-                self.x = pyxel.width - (self.bbox.x + self.bbox.w)
+            max_x = pyxel.width - (self.bbox.x + self.bbox.w)
+            if self.x > max_x:
+                self.x = max_x
             self.direction = 0
             moving = True
         if pyxel.btn(pyxel.KEY_UP):
@@ -38,8 +39,9 @@ class Player(Object):
             moving = True
         if pyxel.btn(pyxel.KEY_DOWN):
             self.y += self.move_speed
-            if self.y > pyxel.height - (self.bbox.y + self.bbox.h):
-                self.y = pyxel.height - (self.bbox.y + self.bbox.h)
+            max_y = pyxel.height - (self.bbox.y + self.bbox.h)
+            if self.y > max_y:
+                self.y = max_y
             moving = True
         self.img = self.images[self.direction]
         if moving:
