@@ -21,17 +21,25 @@ class Player(Object):
         moving = False
         if pyxel.btn(pyxel.KEY_LEFT):
             self.x -= self.move_speed
+            if self.x < -self.bbox.x:
+                self.x = -self.bbox.x
             self.direction = 1
             moving = True
         if pyxel.btn(pyxel.KEY_RIGHT):
             self.x += self.move_speed
+            if self.x > pyxel.width - (self.bbox.x + self.bbox.w):
+                self.x = pyxel.width - (self.bbox.x + self.bbox.w)
             self.direction = 0
             moving = True
         if pyxel.btn(pyxel.KEY_UP):
             self.y -= self.move_speed
+            if self.y < -self.bbox.y:
+                self.y = -self.bbox.y
             moving = True
         if pyxel.btn(pyxel.KEY_DOWN):
             self.y += self.move_speed
+            if self.y > pyxel.height - (self.bbox.y + self.bbox.h):
+                self.y = pyxel.height - (self.bbox.y + self.bbox.h)
             moving = True
         self.img = self.images[self.direction]
         if moving:

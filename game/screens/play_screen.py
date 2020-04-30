@@ -1,3 +1,5 @@
+from typing import List
+
 import pyxel
 
 from ..objects.ghost import Ghost
@@ -7,8 +9,9 @@ from .screen import Screen
 
 class PlayScreen(Screen):
     def __init__(self):
-        self.player = Player(75, 55)
-        self.enemies = []
+        super().__init__()
+        self.player: Player = Player(75, 55)
+        self.enemies: List[Ghost] = []
         for x in range(15):
             enemy = Ghost()
             enemy.x = 0 - x * 10
@@ -39,7 +42,7 @@ class PlayScreen(Screen):
 
     def draw(self):
         pyxel.cls(0)
-        pyxel.text(5, 5, f'{len(self.enemies)}', 15)
+        # pyxel.text(5, 5, f'{len(self.enemies)}', 15)
         for obj in self.objects:
             obj.draw()
         if self.game_over:
