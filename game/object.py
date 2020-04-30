@@ -3,7 +3,7 @@ from typing import List
 
 import pyxel
 
-from image import Image
+from .image import Image
 
 
 class Object:

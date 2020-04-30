@@ -2,8 +2,8 @@ from random import randint
 
 import pyxel
 
-from image import Image
-from object import Object
+from .image import Image
+from .object import Object
 
 
 class Ghost(Object):

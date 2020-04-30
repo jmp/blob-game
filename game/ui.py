@@ -1,6 +1,6 @@
 import pyxel
 
-from constants import SCREEN_WIDTH
+from .constants import SCREEN_WIDTH
 
 CHAR_WIDTH = 4
 CHAR_HEIGHT = 5

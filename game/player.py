@@ -1,7 +1,7 @@
 import pyxel
 
-from image import Image
-from object import Object
+from .image import Image
+from .object import Object
 
 
 class Player(Object):

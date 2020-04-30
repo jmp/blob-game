@@ -1,8 +1,8 @@
 import pyxel
 
-from ghost import Ghost
-from player import Player
-from screen import Screen
+from .ghost import Ghost
+from .player import Player
+from .screen import Screen
 
 
 class PlayScreen(Screen):
@@ -19,7 +19,7 @@ class PlayScreen(Screen):
 
     def update(self):
         if pyxel.btnp(pyxel.KEY_ESCAPE):
-            from menu_screen import MenuScreen
+            from game.menu_screen import MenuScreen
             self.next_screen = MenuScreen()
             return
         if self.game_over:
