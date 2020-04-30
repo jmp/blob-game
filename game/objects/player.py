@@ -12,11 +12,6 @@ class Player(Object):
         Image(1, 8, 0, colkey=13),
     ]
 
-    def __init__(self):
-        super().__init__()
-        self.x = 60
-        self.y = 60
-
     def update(self):
         moving = False
         if pyxel.btn(pyxel.KEY_LEFT):

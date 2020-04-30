@@ -7,7 +7,7 @@ from .screen import Screen
 
 class PlayScreen(Screen):
     def __init__(self):
-        self.player = Player()
+        self.player = Player(75, 55)
         self.enemies = []
         for x in range(15):
             enemy = Ghost()

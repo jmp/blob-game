@@ -17,10 +17,10 @@ class Object:
     colkey: int = 13
     size: int = 8
 
-    def __init__(self):
-        self.bbox = BBox()
-        self._x: int = 0
-        self._y: int = 0
+    def __init__(self, x=0, y=0):
+        self._x: int = x
+        self._y: int = y
+        self.bbox: BBox = BBox(offset_x=x, offset_y=y)
 
     @property
     def x(self) -> int:
