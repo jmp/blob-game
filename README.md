@@ -1,4 +1,4 @@
-# blob-game
+# Blob Game
 
 A small game written in Python using [Pyxel][1].
 
