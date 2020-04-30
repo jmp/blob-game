@@ -12,6 +12,11 @@ class Player(Object):
         Image(1, 8, 0, colkey=13),
     ]
 
+    def __init__(self, x, y):
+        super().__init__(x, y)
+        self.bbox.y = 1
+        self.bbox.h = 7
+
     def update(self):
         moving = False
         if pyxel.btn(pyxel.KEY_LEFT):

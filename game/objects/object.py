@@ -27,7 +27,7 @@ class Object:
         return self._x
 
     @x.setter
-    def x(self, value):
+    def x(self, value: int):
         self._x = value
         self.bbox.offset_x = value
 
@@ -36,17 +36,16 @@ class Object:
         return self._y
 
     @y.setter
-    def y(self, value):
+    def y(self, value: int):
         self._y = value
         self.bbox.offset_y = value
 
     def draw(self):
-        if self.img:
-            pyxel.blt(
-                **asdict(self.img),
-                x=self.x,
-                y=self.y,
-            )
+        pyxel.blt(
+            **asdict(self.img),
+            x=self.x,
+            y=self.y,
+        )
 
     def overlaps(self, other: Object):
         return self.bbox.overlaps(other.bbox)
