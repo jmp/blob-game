@@ -1,6 +1,6 @@
 import pyxel
 
-from .image import Image
+from game.image import Image
 from .object import Object
 
 

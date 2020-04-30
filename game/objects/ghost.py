@@ -2,7 +2,7 @@ from random import randint
 
 import pyxel
 
-from .image import Image
+from game.image import Image
 from .object import Object
 
 
@@ -18,7 +18,7 @@ class Ghost(Object):
         self.reset()
 
     def reset(self):
-        self.x = -8
+        self.x = -self.size
         self.y = randint(0, pyxel.height - 8)
 
     def update(self):

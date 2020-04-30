@@ -1,7 +1,7 @@
 import pyxel
 
-from .ghost import Ghost
-from .player import Player
+from .objects.ghost import Ghost
+from .objects.player import Player
 from .screen import Screen
 
 
@@ -30,12 +30,12 @@ class PlayScreen(Screen):
             enemy = Ghost()
             self.enemies.append(enemy)
             self.objects.append(enemy)
-        for obj in self.objects:
-            obj.update()
         for enemy in self.enemies:
-            if enemy.intersects(self.player.x + 1, self.player.y + 1, 6, 6):
+            enemy.update()
+            if enemy.overlaps(self.player):
                 self.game_over = True
                 return
+        self.player.update()
 
     def draw(self):
         pyxel.cls(0)
