@@ -17,7 +17,7 @@ class MenuScreen(Screen):
             self.selection = START
         if pyxel.btnp(pyxel.KEY_DOWN):
             self.selection = QUIT
-        if pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.KEY_ENTER):
+        if pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.KEY_RETURN):
             if self.selection == START:
                 from .play_screen import PlayScreen
                 self.next_screen = PlayScreen()

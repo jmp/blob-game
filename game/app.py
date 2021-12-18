@@ -10,7 +10,7 @@ class App:
         pyxel.init(
             SCREEN_WIDTH,
             SCREEN_HEIGHT,
-            caption=CAPTION,
+            title=CAPTION,
             quit_key=pyxel.KEY_NONE,
         )
         pyxel.load(DATA_FILE)
