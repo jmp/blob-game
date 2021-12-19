@@ -2,7 +2,7 @@ from random import randint
 
 import pyxel
 
-from game.image import Image
+from ..image import Image
 from .object import Object
 
 
