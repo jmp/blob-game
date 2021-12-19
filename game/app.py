@@ -17,10 +17,7 @@ class App:
         pyxel.run(self.update, self.draw)
 
     def update(self):
-        if self.screen.next_screen is not None:
-            self.screen = self.screen.next_screen
-            self.screen.next_screen = None
-        self.screen.update()
+        self.screen = self.screen.update()
 
     def draw(self):
         self.screen.draw()

@@ -1,15 +1,11 @@
 from abc import ABC, abstractmethod
-from typing import Optional
 
 
 class Screen(ABC):
-    def __init__(self):
-        self.next_screen: Optional[Screen] = None
-
     @abstractmethod
-    def update(self):
+    def update(self) -> "Screen":
         pass
 
     @abstractmethod
-    def draw(self):
+    def draw(self) -> None:
         pass

@@ -9,7 +9,6 @@ from .screen import Screen
 
 class PlayScreen(Screen):
     def __init__(self):
-        super().__init__()
         self.player: Player = Player(75, 55)
         self.enemies: List[Ghost] = []
         for x in range(15):
@@ -20,13 +19,12 @@ class PlayScreen(Screen):
         self.enemy_counter = 0
         self.game_over = False
 
-    def update(self):
+    def update(self) -> Screen:
         if pyxel.btnp(pyxel.KEY_ESCAPE):
             from game.screens.menu_screen import MenuScreen
-            self.next_screen = MenuScreen()
-            return
+            return MenuScreen()
         if self.game_over:
-            return
+            return self
         self.enemy_counter += 1
         if self.enemy_counter > 70:
             self.enemy_counter = 0
@@ -37,10 +35,10 @@ class PlayScreen(Screen):
             enemy.update()
             if enemy.overlaps(self.player):
                 self.game_over = True
-                return
         self.player.update()
+        return self
 
-    def draw(self):
+    def draw(self) -> None:
         pyxel.cls(0)
         # pyxel.text(5, 5, f'{len(self.enemies)}', 15)
         for obj in self.objects:

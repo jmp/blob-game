@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from dataclasses import asdict
 from typing import List
 
@@ -21,6 +19,7 @@ class Object:
         self._x: int = x
         self._y: int = y
         self.bbox: BBox = BBox(offset_x=x, offset_y=y)
+        self.img = self.images[0]
 
     @property
     def x(self) -> int:
@@ -40,12 +39,12 @@ class Object:
         self._y = value
         self.bbox.offset_y = value
 
-    def draw(self):
+    def draw(self) -> None:
         pyxel.blt(
             **asdict(self.img),
             x=self.x,
             y=self.y,
         )
 
-    def overlaps(self, other: Object):
+    def overlaps(self, other: "Object"):
         return self.bbox.overlaps(other.bbox)
