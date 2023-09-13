@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Self
 
-from ..renderer.protocols import Renderer
-from ..input_device.protocols import InputDevice
+from ..renderer import Renderer
+from ..input_device import InputDevice
 
 
 class Screen(ABC):

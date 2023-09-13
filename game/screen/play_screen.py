@@ -1,7 +1,7 @@
 from typing import List
 
-from ..renderer.protocols import Renderer
-from ..input_device.protocols import InputDevice
+from ..renderer import Renderer
+from ..input_device import InputDevice
 from ..object.ghost import Ghost
 from ..object.player import Player
 from .screen import Screen

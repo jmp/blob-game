@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from ..image import Image
+from .image import Image
 
 
 class Renderer(Protocol):

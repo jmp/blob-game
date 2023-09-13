@@ -3,7 +3,7 @@ from typing import Callable
 import pyxel
 
 from ..constants import SCREEN_WIDTH, SCREEN_HEIGHT, CAPTION
-from .protocols import Window
+from ..window import Window
 
 
 class PyxelWindow(Window):

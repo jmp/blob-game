@@ -1,6 +1,6 @@
-from .window.protocols import Window
-from .renderer.protocols import Renderer
-from .input_device.protocols import InputDevice
+from .window import Window
+from .renderer import Renderer
+from .input_device import InputDevice
 from .screen.screen import Screen
 
 

@@ -1,6 +1,6 @@
 import pyxel
 
-from .protocols import InputDevice
+from ..input_device import InputDevice
 
 
 class PyxelInputDevice(InputDevice):

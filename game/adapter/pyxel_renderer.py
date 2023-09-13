@@ -4,7 +4,7 @@ import pyxel
 
 from ..constants import SCREEN_WIDTH
 from ..image import Image
-from .protocols import Renderer
+from ..renderer import Renderer
 
 
 CHAR_WIDTH = 4
