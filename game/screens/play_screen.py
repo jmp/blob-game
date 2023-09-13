@@ -41,7 +41,6 @@ class PlayScreen(Screen):
 
     def draw(self, renderer: Renderer) -> None:
         renderer.clear(0)
-        # pyxel.text(5, 5, f'{len(self.enemies)}', 15)
         for obj in self.objects:
             obj.draw(renderer)
         if self.game_over:
