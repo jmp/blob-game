@@ -8,7 +8,7 @@ from ..renderer import Renderer
 
 class Object:
     images: List[Image] = []
-    img: Image = None
+    img: Image | None = None
     move_speed: int = 1
     direction: int = 0
     colkey: int = 13
