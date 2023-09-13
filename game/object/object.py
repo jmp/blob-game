@@ -1,5 +1,5 @@
 from time import time
-from typing import List
+from typing import List, Self
 
 from ..bbox import BBox
 from ..image import Image
@@ -46,5 +46,5 @@ class Object:
     def draw(self, renderer: Renderer) -> None:
         renderer.draw(self.img, self.x, self.y)
 
-    def overlaps(self, other: "Object"):
+    def overlaps(self, other: Self):
         return self.bbox.overlaps(other.bbox)
