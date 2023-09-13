@@ -3,7 +3,7 @@ from typing import List
 
 from ..bbox import BBox
 from ..image import Image
-from ..renderers.protocols import Renderer
+from ..renderer.protocols import Renderer
 
 
 class Object:

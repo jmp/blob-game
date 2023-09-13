@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 from game.app import App
-from game.windows.pyxel_window import PyxelWindow
-from game.renderers.pyxel_renderer import PyxelRenderer
-from game.input_devices.pyxel_input_device import PyxelInputDevice
-from game.screens.menu_screen import MenuScreen
+from game.window.pyxel_window import PyxelWindow
+from game.renderer.pyxel_renderer import PyxelRenderer
+from game.input_device.pyxel_input_device import PyxelInputDevice
+from game.screen.menu_screen import MenuScreen
 
 if __name__ == "__main__":
     window = PyxelWindow()

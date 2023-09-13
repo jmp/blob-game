@@ -1,7 +1,7 @@
-from .windows.protocols import Window
-from .renderers.protocols import Renderer
-from .input_devices.protocols import InputDevice
-from .screens.screen import Screen
+from .window.protocols import Window
+from .renderer.protocols import Renderer
+from .input_device.protocols import InputDevice
+from .screen.screen import Screen
 
 
 class App:

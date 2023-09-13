@@ -1,6 +1,6 @@
 from .screen import Screen
-from ..renderers.protocols import Renderer
-from ..input_devices.protocols import InputDevice
+from ..renderer.protocols import Renderer
+from ..input_device.protocols import InputDevice
 
 START = 'Start'
 QUIT = 'Quit'

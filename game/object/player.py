@@ -1,7 +1,7 @@
 from .object import Object
 from ..constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from ..image import Image
-from ..input_devices.protocols import InputDevice
+from ..input_device.protocols import InputDevice
 
 
 class Player(Object):

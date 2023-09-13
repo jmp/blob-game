@@ -1,9 +1,9 @@
 from typing import List
 
-from ..renderers.protocols import Renderer
-from ..input_devices.protocols import InputDevice
-from ..objects.ghost import Ghost
-from ..objects.player import Player
+from ..renderer.protocols import Renderer
+from ..input_device.protocols import InputDevice
+from ..object.ghost import Ghost
+from ..object.player import Player
 from .screen import Screen
 
 
