@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(frozen=True)
 class Image:
     img: int = 0  # image bank
     u: int = 0  # u-coordinate on image
