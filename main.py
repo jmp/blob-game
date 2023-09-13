@@ -3,9 +3,9 @@
 from game.app import App
 from game.screen.menu_screen import MenuScreen
 
-from adapter.pyxel_window import PyxelWindow
-from adapter.pyxel_renderer import PyxelRenderer
-from adapter.pyxel_input_device import PyxelInputDevice
+from adapters.pyxel_window import PyxelWindow
+from adapters.pyxel_renderer import PyxelRenderer
+from adapters.pyxel_input_device import PyxelInputDevice
 
 
 if __name__ == "__main__":
