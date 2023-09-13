@@ -10,7 +10,7 @@ class App:
     def __init__(self, renderer: Renderer, input_device: InputDevice, initial_screen: Screen):
         self.renderer = renderer
         self.input_device = input_device
-        self.screen: Screen = initial_screen
+        self.screen = initial_screen
         pyxel.init(
             SCREEN_WIDTH,
             SCREEN_HEIGHT,
