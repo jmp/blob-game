@@ -1,6 +1,5 @@
-import pyxel
-
 from .object import Object
+from ..constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from ..image import Image
 from ..input_devices.protocols import InputDevice
 
@@ -34,7 +33,7 @@ class Player(Object):
         self.img = self.images[self.direction]
         if self.is_moving:
             self.img = self.images[self.direction::2][
-                (pyxel.frame_count // 2) % len(self.images[self.direction::2])
+                self.frame_index % len(self.images[self.direction::2])
             ]
 
     def move_left(self) -> None:
@@ -46,7 +45,7 @@ class Player(Object):
 
     def move_right(self) -> None:
         self.x += self.move_speed
-        max_x = pyxel.width - (self.bbox.x + self.bbox.w)
+        max_x = SCREEN_WIDTH - (self.bbox.x + self.bbox.w)
         if self.x > max_x:
             self.x = max_x
         self.direction = 0
@@ -60,7 +59,7 @@ class Player(Object):
 
     def move_down(self) -> None:
         self.y += self.move_speed
-        max_y = pyxel.height - (self.bbox.y + self.bbox.h)
+        max_y = SCREEN_HEIGHT - (self.bbox.y + self.bbox.h)
         if self.y > max_y:
             self.y = max_y
         self.is_moving = True
