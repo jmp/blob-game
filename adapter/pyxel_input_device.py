@@ -1,6 +1,6 @@
 import pyxel
 
-from ..input_device import InputDevice
+from game.input_device import InputDevice
 
 
 class PyxelInputDevice(InputDevice):

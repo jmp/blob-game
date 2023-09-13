@@ -2,9 +2,9 @@ from dataclasses import asdict
 
 import pyxel
 
-from ..constants import SCREEN_WIDTH
-from ..image import Image
-from ..renderer import Renderer
+from game.constants import SCREEN_WIDTH
+from game.image import Image
+from game.renderer import Renderer
 
 
 CHAR_WIDTH = 4

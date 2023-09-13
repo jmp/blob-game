@@ -2,8 +2,8 @@ from typing import Callable
 
 import pyxel
 
-from ..constants import SCREEN_WIDTH, SCREEN_HEIGHT, CAPTION
-from ..window import Window
+from game.constants import SCREEN_WIDTH, SCREEN_HEIGHT, CAPTION
+from game.window import Window
 
 
 class PyxelWindow(Window):
@@ -14,7 +14,7 @@ class PyxelWindow(Window):
             title=CAPTION,
             quit_key=pyxel.KEY_NONE,
         )
-        pyxel.load('../../assets/data.pyxres')
+        pyxel.load('../assets/data.pyxres')
 
     def run_main_loop(self, update_func: Callable, draw_func: Callable) -> None:
         pyxel.run(update_func, draw_func)
