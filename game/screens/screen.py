@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+from ..renderers.protocols import Renderer
 from ..input_devices.protocols import InputDevice
 
 
@@ -9,5 +10,5 @@ class Screen(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def draw(self) -> None:
+    def draw(self, renderer: Renderer) -> None:
         raise NotImplementedError

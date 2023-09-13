@@ -1,10 +1,8 @@
-from dataclasses import asdict
 from typing import List
-
-import pyxel
 
 from ..bbox import BBox
 from ..image import Image
+from ..renderers.protocols import Renderer
 
 
 class Object:
@@ -39,12 +37,8 @@ class Object:
         self._y = value
         self.bbox.offset_y = value
 
-    def draw(self) -> None:
-        pyxel.blt(
-            **asdict(self.img),
-            x=self.x,
-            y=self.y,
-        )
+    def draw(self, renderer: Renderer) -> None:
+        renderer.draw(self.img, self.x, self.y)
 
     def overlaps(self, other: "Object"):
         return self.bbox.overlaps(other.bbox)

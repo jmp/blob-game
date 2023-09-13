@@ -2,6 +2,7 @@ from typing import List
 
 import pyxel
 
+from ..renderers.protocols import Renderer
 from ..input_devices.protocols import InputDevice
 from ..objects.ghost import Ghost
 from ..objects.player import Player
@@ -40,11 +41,11 @@ class PlayScreen(Screen):
         self.player.update()
         return self
 
-    def draw(self) -> None:
+    def draw(self, renderer: Renderer) -> None:
         pyxel.cls(0)
         # pyxel.text(5, 5, f'{len(self.enemies)}', 15)
         for obj in self.objects:
-            obj.draw()
+            obj.draw(renderer)
         if self.game_over:
             game_over_text = 'GAME OVER'
             pyxel.rect(57, 18, len(game_over_text) * 4 + 5, 9, 4)

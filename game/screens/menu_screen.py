@@ -1,6 +1,7 @@
 import pyxel
 
 from .screen import Screen
+from ..renderers.protocols import Renderer
 from ..input_devices.protocols import InputDevice
 from ..ui import draw_button, draw_title
 
@@ -27,7 +28,7 @@ class MenuScreen(Screen):
                 pyxel.quit()
         return self
 
-    def draw(self) -> None:
+    def draw(self, renderer: Renderer) -> None:
         pyxel.cls(1)
         draw_title(10, 20, 'BLOB GAME', 7)
         draw_button(25, 50, START, 7, 0 if self.selection == START else None)

@@ -1,12 +1,14 @@
 import pyxel
 
 from .constants import SCREEN_WIDTH, SCREEN_HEIGHT, CAPTION, DATA_FILE
+from .renderers.protocols import Renderer
 from .input_devices.protocols import InputDevice
 from .screens.screen import Screen
 
 
 class App:
-    def __init__(self, input_device: InputDevice, initial_screen: Screen):
+    def __init__(self, renderer: Renderer, input_device: InputDevice, initial_screen: Screen):
+        self.renderer = renderer
         self.input_device = input_device
         self.screen: Screen = initial_screen
         pyxel.init(
@@ -22,4 +24,4 @@ class App:
         self.screen = self.screen.update(self.input_device)
 
     def draw(self) -> None:
-        self.screen.draw()
+        self.screen.draw(self.renderer)
