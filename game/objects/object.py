@@ -1,3 +1,4 @@
+from time import time
 from typing import List
 
 from ..bbox import BBox
@@ -18,6 +19,7 @@ class Object:
         self._y: int = y
         self.bbox: BBox = BBox(offset_x=x, offset_y=y)
         self.img = self.images[0]
+        self.spawn_time = time()
 
     @property
     def x(self) -> int:
@@ -36,6 +38,10 @@ class Object:
     def y(self, value: int):
         self._y = value
         self.bbox.offset_y = value
+
+    @property
+    def frame_index(self) -> int:
+        return int((time() - self.spawn_time) * 50)
 
     def draw(self, renderer: Renderer) -> None:
         renderer.draw(self.img, self.x, self.y)
