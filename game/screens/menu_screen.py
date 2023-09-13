@@ -11,9 +11,8 @@ QUIT = 'Quit'
 class MenuScreen(Screen):
     selection = START
 
-    def update(self, input_device: InputDevice) -> Screen:
+    def update(self, input_device: InputDevice) -> Screen | None:
         if input_device.is_cancel_pressed:
-            pyxel.quit()
             return self
         if input_device.is_up_held:
             self.selection = START

@@ -19,7 +19,7 @@ class PlayScreen(Screen):
         self.enemy_counter = 0
         self.game_over = False
 
-    def update(self, input_device: InputDevice) -> Screen:
+    def update(self, input_device: InputDevice) -> Screen | None:
         if input_device.is_cancel_pressed:
             from .menu_screen import MenuScreen
             return MenuScreen()
