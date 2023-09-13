@@ -1,6 +1,5 @@
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Self
 
 
 @dataclass
@@ -12,7 +11,7 @@ class BBox:
     offset_x: int = 0
     offset_y: int = 0
 
-    def overlaps(self, other: BBox) -> bool:
+    def overlaps(self, other: Self) -> bool:
         x = self.x + self.offset_x
         y = self.y + self.offset_y
         other_x = other.x + other.offset_x
