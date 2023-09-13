@@ -18,11 +18,11 @@ class Ghost(Object):
         super().__init__()
         self.reset()
 
-    def reset(self):
+    def reset(self) -> None:
         self.x = -self.size
         self.y = randint(0, SCREEN_HEIGHT - 8)
 
-    def update(self):
+    def update(self) -> None:
         self.img = self.images[self.direction::2][
             self.frame_index % len(self.images[self.direction::2])
         ]

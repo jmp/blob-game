@@ -46,5 +46,5 @@ class Object:
     def draw(self, renderer: Renderer) -> None:
         renderer.draw(self.img, self.x, self.y)
 
-    def overlaps(self, other: Self):
+    def overlaps(self, other: Self) -> bool:
         return self.bbox.overlaps(other.bbox)
