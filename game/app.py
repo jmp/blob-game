@@ -1,11 +1,13 @@
 import pyxel
 
 from .constants import SCREEN_WIDTH, SCREEN_HEIGHT, CAPTION, DATA_FILE
+from .input_devices.protocols import InputDevice
 from .screens.screen import Screen
 
 
 class App:
-    def __init__(self, initial_screen: Screen):
+    def __init__(self, input_device: InputDevice, initial_screen: Screen):
+        self.input_device = input_device
         self.screen: Screen = initial_screen
         pyxel.init(
             SCREEN_WIDTH,
@@ -16,8 +18,8 @@ class App:
         pyxel.load(DATA_FILE)
         pyxel.run(self.update, self.draw)
 
-    def update(self):
-        self.screen = self.screen.update()
+    def update(self) -> None:
+        self.screen = self.screen.update(self.input_device)
 
-    def draw(self):
+    def draw(self) -> None:
         self.screen.draw()

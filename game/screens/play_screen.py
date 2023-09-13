@@ -2,6 +2,7 @@ from typing import List
 
 import pyxel
 
+from ..input_devices.protocols import InputDevice
 from ..objects.ghost import Ghost
 from ..objects.player import Player
 from .screen import Screen
@@ -19,9 +20,9 @@ class PlayScreen(Screen):
         self.enemy_counter = 0
         self.game_over = False
 
-    def update(self) -> Screen:
-        if pyxel.btnp(pyxel.KEY_ESCAPE):
-            from game.screens.menu_screen import MenuScreen
+    def update(self, input_device: InputDevice) -> Screen:
+        if input_device.is_cancel_pressed:
+            from .menu_screen import MenuScreen
             return MenuScreen()
         if self.game_over:
             return self
@@ -35,6 +36,7 @@ class PlayScreen(Screen):
             enemy.update()
             if enemy.overlaps(self.player):
                 self.game_over = True
+        self.player.handle_input(input_device)
         self.player.update()
         return self
 

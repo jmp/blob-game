@@ -1,8 +1,7 @@
-from typing import Optional
-
 import pyxel
 
 from .screen import Screen
+from ..input_devices.protocols import InputDevice
 from ..ui import draw_button, draw_title
 
 START = 'Start'
@@ -12,15 +11,15 @@ QUIT = 'Quit'
 class MenuScreen(Screen):
     selection = START
 
-    def update(self) -> Screen:
-        if pyxel.btnp(pyxel.KEY_ESCAPE):
+    def update(self, input_device: InputDevice) -> Screen:
+        if input_device.is_cancel_pressed:
             pyxel.quit()
             return self
-        if pyxel.btnp(pyxel.KEY_UP):
+        if input_device.is_up_held:
             self.selection = START
-        if pyxel.btnp(pyxel.KEY_DOWN):
+        if input_device.is_down_held:
             self.selection = QUIT
-        if pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.KEY_RETURN):
+        if input_device.is_accept_pressed:
             if self.selection == START:
                 from .play_screen import PlayScreen
                 return PlayScreen()
