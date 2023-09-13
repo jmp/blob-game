@@ -3,7 +3,6 @@ import pyxel
 from .screen import Screen
 from ..renderers.protocols import Renderer
 from ..input_devices.protocols import InputDevice
-from ..ui import draw_button, draw_title
 
 START = 'Start'
 QUIT = 'Quit'
@@ -29,7 +28,7 @@ class MenuScreen(Screen):
         return self
 
     def draw(self, renderer: Renderer) -> None:
-        pyxel.cls(1)
-        draw_title(10, 20, 'BLOB GAME', 7)
-        draw_button(25, 50, START, 7, 0 if self.selection == START else None)
-        draw_button(25, 65, QUIT, 7, 0 if self.selection == QUIT else None)
+        renderer.clear(1)
+        renderer.draw_title(10, 20, 'BLOB GAME', 7)
+        renderer.draw_button(25, 50, START, 7, 0 if self.selection == START else None)
+        renderer.draw_button(25, 65, QUIT, 7, 0 if self.selection == QUIT else None)
