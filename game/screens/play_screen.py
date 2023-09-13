@@ -1,7 +1,5 @@
 from typing import List
 
-import pyxel
-
 from ..renderers.protocols import Renderer
 from ..input_devices.protocols import InputDevice
 from ..objects.ghost import Ghost
@@ -42,14 +40,10 @@ class PlayScreen(Screen):
         return self
 
     def draw(self, renderer: Renderer) -> None:
-        pyxel.cls(0)
+        renderer.clear(0)
         # pyxel.text(5, 5, f'{len(self.enemies)}', 15)
         for obj in self.objects:
             obj.draw(renderer)
         if self.game_over:
-            game_over_text = 'GAME OVER'
-            pyxel.rect(57, 18, len(game_over_text) * 4 + 5, 9, 4)
-            pyxel.text(60, 20, game_over_text, 7)
-            press_text = 'Press ESC to quit'
-            pyxel.rect(42, 48, len(press_text) * 4 + 5, 9, 4)
-            pyxel.text(45, 50, press_text, 7)
+            renderer.draw_text_with_background(60, 20, 'GAME OVER')
+            renderer.draw_text_with_background(45, 50, 'Press ESC to quit')

@@ -36,6 +36,10 @@ class PyxelRenderer(Renderer):
         pyxel.text(x + 1, y + v_pad, text, 0)
         pyxel.text(x, y + v_pad, text, color)
 
+    def draw_text_with_background(self, x: int, y: int, text: str):
+        pyxel.rect(x - 3, y - 2, len(text) * CHAR_WIDTH + CHAR_HEIGHT, 9, 4)
+        pyxel.text(x, y, text, 7)
+
 
 def calculate_text_width(text):
     return CHAR_WIDTH * len(text) - 1

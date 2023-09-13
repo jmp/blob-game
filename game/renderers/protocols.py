@@ -15,3 +15,6 @@ class Renderer(Protocol):
 
     def draw_button(self, x: int, y: int, text: str, color: int, bgcolor: int | None = None):
         raise NotImplementedError
+
+    def draw_text_with_background(self, x: int, y: int, text: str):
+        raise NotImplementedError
