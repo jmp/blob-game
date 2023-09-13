@@ -1,7 +1,7 @@
 from random import randint
+from time import time
 
-import pyxel
-
+from ..constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from ..image import Image
 from .object import Object
 
@@ -17,15 +17,17 @@ class Ghost(Object):
     def __init__(self):
         super().__init__()
         self.reset()
+        self.spawn_time = time()
 
     def reset(self):
         self.x = -self.size
-        self.y = randint(0, pyxel.height - 8)
+        self.y = randint(0, SCREEN_HEIGHT - 8)
 
     def update(self):
+        frame_index = int((time() - self.spawn_time) * 50)
         self.img = self.images[self.direction::2][
-            (pyxel.frame_count // 2) % len(self.images[self.direction::2])
+            frame_index % len(self.images[self.direction::2])
         ]
         self.x += 1
-        if self.x > pyxel.width:
+        if self.x > SCREEN_WIDTH:
             self.reset()
