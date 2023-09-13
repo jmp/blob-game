@@ -27,5 +27,5 @@ class MenuScreen(Screen):
     def draw(self, renderer: Renderer) -> None:
         renderer.clear(1)
         renderer.draw_title(10, 20, 'BLOB GAME', 7)
-        renderer.draw_button(25, 50, START, 7, 0 if self.selection == START else None)
-        renderer.draw_button(25, 65, QUIT, 7, 0 if self.selection == QUIT else None)
+        renderer.draw_button(25, 50, START, 7, self.selection == START)
+        renderer.draw_button(25, 65, QUIT, 7, self.selection == QUIT)

@@ -25,12 +25,12 @@ class PyxelRenderer(Renderer):
         pyxel.text(x + 1, y, text, 0)
         pyxel.text(x, y, text, color)
 
-    def draw_button(self, x: int, y: int, text: str, color: int, bgcolor: int | None = None) -> None:
+    def draw_button(self, x: int, y: int, text: str, color: int, draw_background: bool = False) -> None:
         button_w = 50
         v_pad = 4
         text_width = calculate_text_width(text)
         x = SCREEN_WIDTH // 2 - text_width // 2
-        if bgcolor is not None:
+        if draw_background:
             w, h = CHAR_WIDTH, CHAR_HEIGHT
             pyxel.rect(SCREEN_WIDTH // 2 - button_w // 2, y, button_w, h + v_pad * 2, 0)
         pyxel.text(x + 1, y + v_pad, text, 0)
