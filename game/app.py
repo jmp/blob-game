@@ -21,7 +21,11 @@ class App:
         pyxel.run(self.update, self.draw)
 
     def update(self) -> None:
-        self.screen = self.screen.update(self.input_device)
+        next_screen = self.screen.update(self.input_device)
+        if next_screen is None:
+            pyxel.quit()
+        else:
+            self.screen = next_screen
 
     def draw(self) -> None:
         self.screen.draw(self.renderer)

@@ -1,5 +1,3 @@
-import pyxel
-
 from .screen import Screen
 from ..renderers.protocols import Renderer
 from ..input_devices.protocols import InputDevice
@@ -13,7 +11,7 @@ class MenuScreen(Screen):
 
     def update(self, input_device: InputDevice) -> Screen | None:
         if input_device.is_cancel_pressed:
-            return self
+            return None
         if input_device.is_up_held:
             self.selection = START
         if input_device.is_down_held:
@@ -23,7 +21,7 @@ class MenuScreen(Screen):
                 from .play_screen import PlayScreen
                 return PlayScreen()
             if self.selection == QUIT:
-                pyxel.quit()
+                return None
         return self
 
     def draw(self, renderer: Renderer) -> None:
